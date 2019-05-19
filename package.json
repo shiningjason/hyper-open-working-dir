@@ -1,9 +1,10 @@
 {
   "name": "hyper-open-working-dir",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Open Hyper with working directory",
   "main": "index.js",
   "author": "Jason Chung <shiningjason1989@gmail.com>",
+  "repository": "https://github.com/shiningjason/hyper-open-working-dir",
   "license": "MIT",
   "prettier": {
     "semi": false,
