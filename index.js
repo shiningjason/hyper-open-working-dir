@@ -4,10 +4,13 @@ const electron = require('electron')
 
 let _activePid
 
-const getProcessWorkingDir = pid =>
-  execSync(`lsof -a -p ${pid} -d cwd -Fn | tail -1`)
-    .toString()
-    .replace(/^n(.*)\n$/, '$1')
+const getProcessWorkingDir = pid => {
+  try {
+    return execSync(`lsof -a -p ${pid} -d cwd -Fn | tail -1`)
+      .toString()
+      .replace(/^n(.*)\n$/, '$1')
+  } catch (e) {}
+}
 
 const getDefaultWorkingDir = () => {
   const homeDir = os.homedir()
@@ -16,7 +19,7 @@ const getDefaultWorkingDir = () => {
 }
 
 const getWorkingDir = () =>
-  _activePid ? getProcessWorkingDir(_activePid) : getDefaultWorkingDir()
+  (_activePid && getProcessWorkingDir(_activePid)) || getDefaultWorkingDir()
 
 exports.middleware = ({ getState }) => next => async action => {
   next(action)
