@@ -15,7 +15,7 @@ const getProcessWorkingDir = pid => {
 const getDefaultWorkingDir = () => {
   const homeDir = os.homedir()
   const dir = electron.app.config.getConfig().defaultWorkingDir
-  return dir ? dir.replace(/^(~)(\/|$)/, `${homeDir}$2`) : homeDir
+  return dir ? dir.replace(/^~(\/|$)/, `${homeDir}$1`) : homeDir
 }
 
 const getWorkingDir = () =>

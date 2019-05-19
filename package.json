@@ -1,6 +1,6 @@
 {
   "name": "hyper-open-working-dir",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Open Hyper with working directory",
   "main": "index.js",
   "author": "Jason Chung <shiningjason1989@gmail.com>",
